@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Кейс 03 — Группа 3 | Nord Clan</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Geologica:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0d0f;
+    --surface: #141418;
+    --surface2: #1a1a20;
+    --border: #2a2a35;
+    --accent: #7B61FF;
+    --accent2: #00C2FF;
+    --warning: #FFB547;
+    --success: #3DDC84;
+    --text: #f0f0f5;
+    --text-muted: #7a7a90;
+    --text-dim: #4a4a60;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Geologica', sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(123,97,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(123,97,255,0.03) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .wrapper {
+    position: relative;
+    z-index: 1;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+  .header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 48px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--border);
+  }
+  .logo { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 3px; }
+  .logo span { color: var(--accent2); }
+  .case-badge { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+  .case-number { font-family: 'Bebas Neue', sans-serif; font-size: 48px; line-height: 1; color: var(--accent); letter-spacing: 2px; }
+  .case-label { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--text-muted); }
+
+  .timing-bar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-bottom: 40px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .timing-item { padding: 32px 12px; background: var(--surface); text-align: center; }
+  .timing-min { font-family: 'Bebas Neue', sans-serif; font-size: 48px; color: var(--accent2); line-height: 1; display: block; }
+  .timing-label { font-size: 12px; color: var(--text-muted); margin-top: 8px; letter-spacing: 0.5px; }
+
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 16px; }
+  .card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+  .card-icon { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+  .icon-purple { background: rgba(123,97,255,0.15); }
+  .icon-blue { background: rgba(0,194,255,0.15); }
+  .icon-yellow { background: rgba(255,181,71,0.15); }
+  .icon-green { background: rgba(61,220,132,0.15); }
+  .card-title { font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); }
+
+  .roles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .role-card { background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; padding: 16px; text-align: center; }
+  .role-emoji { font-size: 24px; margin-bottom: 8px; display: block; }
+  .role-title { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 6px; }
+  .role-name { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 4px; }
+  .role-desc { font-size: 12px; color: var(--text-dim); line-height: 1.5; }
+
+  .info-row { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--border); align-items: flex-start; }
+  .info-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .info-label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-dim); min-width: 120px; padding-top: 2px; flex-shrink: 0; }
+  .info-value { font-size: 14px; color: var(--text); line-height: 1.6; }
+
+  .goal-block {
+    background: linear-gradient(135deg, rgba(123,97,255,0.1), rgba(0,194,255,0.05));
+    border: 1px solid rgba(123,97,255,0.3);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 16px;
+  }
+  .goal-text { font-size: 17px; font-weight: 500; line-height: 1.6; color: var(--text); margin-bottom: 20px; }
+  .goal-text em { color: var(--accent2); font-style: normal; font-weight: 600; }
+  .section-title { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--text-dim); margin-bottom: 16px; font-weight: 500; }
+
+  .criteria-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .criteria-list li { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; line-height: 1.6; color: var(--text-muted); }
+  .criteria-list li .check { width: 20px; height: 20px; border-radius: 50%; background: rgba(61,220,132,0.15); border: 1px solid rgba(61,220,132,0.3); display: flex; align-items: center; justify-content: center; font-size: 11px; color: var(--success); flex-shrink: 0; margin-top: 1px; }
+
+  .rule { background: var(--surface2); border: 1px solid var(--border); border-left: 3px solid var(--warning); border-radius: 8px; padding: 14px 16px; margin-bottom: 10px; font-size: 14px; line-height: 1.6; }
+  .rule strong { color: var(--warning); font-weight: 600; }
+
+  .pain-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .pain-list li { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; line-height: 1.6; }
+  .pain-list li::before { content: '→'; color: var(--accent); flex-shrink: 0; margin-top: 1px; }
+
+  .print-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; color: var(--text-muted); font-family: 'Geologica', sans-serif; font-size: 13px; cursor: pointer; transition: all 0.2s; margin-top: 32px; }
+  .print-btn:hover { border-color: var(--accent); color: var(--text); }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <div class="header">
+    <div class="logo">NORD<span>CLAN</span></div>
+    <div class="case-badge">
+      <span class="case-number">03</span>
+      <span class="case-label">Кейс · Группа 3</span>
+    </div>
+  </div>
+
+  <div class="timing-bar">
+    <div class="timing-item"><span class="timing-min">5</span><div class="timing-label">Вводная</div></div>
+    <div class="timing-item"><span class="timing-min">35</span><div class="timing-label">Защита</div></div>
+    <div class="timing-item"><span class="timing-min">20</span><div class="timing-label">Разбор</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon icon-purple">👥</div>
+      <div class="card-title">Ваши роли</div>
+    </div>
+    <div class="roles-grid">
+      <div class="role-card">
+        <span class="role-emoji">🎯</span>
+        <div class="role-title">Менеджер продаж</div>
+        <div class="role-name">Сизов Евгений</div>
+        <div class="role-desc">Ведёт встречу, выявляет потребности, закрывает на результат</div>
+      </div>
+      <div class="role-card">
+        <span class="role-emoji">📱</span>
+        <div class="role-title">Рук. мобилки</div>
+        <div class="role-name">Соловьева Майя</div>
+        <div class="role-desc">Отвечает на технические вопросы, объясняет подход к разработке</div>
+      </div>
+      <div class="role-card">
+        <span class="role-emoji">⚙️</span>
+        <div class="role-title">Техдир</div>
+        <div class="role-name">Ситникова Елена</div>
+        <div class="role-desc">Подключается при вопросах про интеграции, сроки, риски</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon icon-blue">🚚</div>
+      <div class="card-title">Контекст встречи</div>
+    </div>
+    <div class="info-row"><div class="info-label">Клиент</div><div class="info-value">Курьерская служба «СкорОтправ» — 200+ курьеров, 5 городов</div></div>
+    <div class="info-row"><div class="info-label">Контакт</div><div class="info-value">Ирина Сергеевна, операционный директор</div></div>
+    <div class="info-row"><div class="info-label">Инициатива</div><div class="info-value">Рекомендация от партнёра, у которого Nord Clan уже делал проект</div></div>
+    <div class="info-row"><div class="info-label">Что известно</div><div class="info-value">Нужно приложение для курьеров. Был плохой опыт с предыдущим подрядчиком.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon icon-green">🎯</div>
+      <div class="card-title">Ваша цель</div>
+    </div>
+    <div class="goal-block">
+      <div class="goal-text">Ирина Сергеевна говорит <em>«я готова предварительно согласовать сотрудничество с Nord Clan»</em> и называет конкретный следующий шаг со своей стороны.</div>
+      <div class="section-title">Чтобы этого добиться — закройте три вещи</div>
+      <ul class="criteria-list">
+        <li><span class="check">✓</span>Она верит что Nord Clan не повторит ошибку предыдущего подрядчика — понимает процесс и контролирует качество</li>
+        <li><span class="check">✓</span>Она понимает как будет работать трекинг и геолокация — без воды и обещаний</li>
+        <li><span class="check">✓</span>Она понимает как будет выглядеть работа (MVP, этапы, релизы) и это её устраивает</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon icon-yellow">⚠️</div>
+      <div class="card-title">Что вас ждёт</div>
+    </div>
+    <ul class="pain-list">
+      <li>Клиент скептичен из-за прошлого опыта — это не агрессия, это страх</li>
+      <li>Найдите его язык: не «методология», а «как мы контролируем процесс»</li>
+      <li>Будут вопросы на которые у вас нет готового ответа — важно как выходите</li>
+    </ul>
+    <div style="margin-top: 16px;">
+      <div class="rule">
+        <strong>Подсказка:</strong> используйте кейсы Nord Clan — они убеждают лучше любых слов о качестве.
+      </div>
+    </div>
+  </div>
+
+  <button class="print-btn" onclick="window.print()">🖨 Распечатать</button>
+
+</div>
+</body>
+</html>
