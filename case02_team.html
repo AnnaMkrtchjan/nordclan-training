@@ -13,7 +13,6 @@
     --border: #2a2a35;
     --accent: #7B61FF;
     --accent2: #00C2FF;
-    --danger: #FF4D6D;
     --warning: #FFB547;
     --success: #3DDC84;
     --text: #f0f0f5;
@@ -32,7 +31,7 @@
     content: '';
     position: fixed;
     inset: 0;
-    background-image: 
+    background-image:
       linear-gradient(rgba(123,97,255,0.03) 1px, transparent 1px),
       linear-gradient(90deg, rgba(123,97,255,0.03) 1px, transparent 1px);
     background-size: 48px 48px;
@@ -101,7 +100,7 @@
     padding: 24px;
     margin-bottom: 16px;
   }
-  .goal-text { font-size: 18px; font-weight: 500; line-height: 1.6; color: var(--text); margin-bottom: 20px; }
+  .goal-text { font-size: 17px; font-weight: 500; line-height: 1.6; color: var(--text); margin-bottom: 20px; }
   .goal-text em { color: var(--accent2); font-style: normal; font-weight: 600; }
   .section-title { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--text-dim); margin-bottom: 16px; font-weight: 500; }
 
@@ -118,11 +117,6 @@
 
   .print-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; color: var(--text-muted); font-family: 'Geologica', sans-serif; font-size: 13px; cursor: pointer; transition: all 0.2s; margin-top: 32px; }
   .print-btn:hover { border-color: var(--accent); color: var(--text); }
-
-  @media print {
-    body { background: white; color: black; }
-    .print-btn { display: none; }
-  }
 </style>
 </head>
 <body>
@@ -167,31 +161,17 @@
         <div class="role-desc">Подключается при вопросах про интеграции, сроки, риски</div>
       </div>
     </div>
-    </div>
-  </div>
   </div>
 
   <div class="card">
     <div class="card-header">
-      <div class="card-icon icon-blue">🏢</div>
+      <div class="card-icon icon-blue">🏦</div>
       <div class="card-title">Контекст встречи</div>
     </div>
-    <div class="info-row">
-      <div class="info-label">Клиент</div>
-      <div class="info-value">Микрофинансовая организация «БыстроДеньги»</div>
-    </div>
-    <div class="info-row">
-      <div class="info-label">Контакт</div>
-      <div class="info-value">Ирина Сергеевна, директор по цифровым продуктам</div>
-    </div>
-    <div class="info-row">
-      <div class="info-label">Инициатива</div>
-      <div class="info-value">Клиент нашёл Nord Clan через поиск, изучил сайт, написал сам</div>
-    </div>
-    <div class="info-row">
-      <div class="info-label">Что известно</div>
-      <div class="info-value">Хочет мобильное приложение для клиентов. Упомянул «что-то простое».</div>
-    </div>
+    <div class="info-row"><div class="info-label">Клиент</div><div class="info-value">Микрофинансовая организация «БыстроДеньги»</div></div>
+    <div class="info-row"><div class="info-label">Контакт</div><div class="info-value">Ирина Сергеевна, директор по цифровым продуктам</div></div>
+    <div class="info-row"><div class="info-label">Инициатива</div><div class="info-value">Клиент нашёл Nord Clan через поиск, изучил сайт, написал сам</div></div>
+    <div class="info-row"><div class="info-label">Что известно</div><div class="info-value">Хочет мобильное приложение для клиентов. Упомянул «что-то простое».</div></div>
   </div>
 
   <div class="card">
@@ -200,9 +180,7 @@
       <div class="card-title">Ваша цель</div>
     </div>
     <div class="goal-block">
-      <div class="goal-text">
-        Ирина Сергеевна говорит <em>«я готова предварительно согласовать сотрудничество с Nord Clan»</em> и называет конкретный следующий шаг со своей стороны.
-      </div>
+      <div class="goal-text">Ирина Сергеевна говорит <em>«я готова предварительно согласовать сотрудничество с Nord Clan»</em> и называет конкретный следующий шаг со своей стороны.</div>
       <div class="section-title">Чтобы этого добиться — закройте три вещи</div>
       <ul class="criteria-list">
         <li><span class="check">✓</span>Она верит что Nord Clan понимает финтех и не подведёт как предыдущие дешёвые подрядчики</li>
@@ -218,10 +196,10 @@
       <div class="card-title">Что вас ждёт</div>
     </div>
     <ul class="pain-list">
-      <li>Клиент говорит мало — не объясняет проблему сам, ждёт что вытащите вопросами</li>
-      <li>На общие фразы реагирует холодно — будьте конкретны</li>
-      <li>Торопит: «у меня 20 минут, давайте по существу»</li>
-      <li>Будут вопросы на которые у вас нет готового ответа — это нормально, важно как выходите</li>
+      <li>Клиент давит на цену — это тест, не паникуйте</li>
+      <li>Найдите его реальную боль — она не про деньги, а про нагрузку на колл-центр</li>
+      <li>Будут вопросы на которые у вас нет готового ответа — важно как выходите</li>
+      <li>Используйте финтех-кейсы Nord Clan — они убеждают лучше слов</li>
     </ul>
     <div style="margin-top: 16px;">
       <div class="rule">
